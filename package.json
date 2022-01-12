@@ -1,0 +1,27 @@
+{
+  "name": "app-week1-team1",
+  "version": "1.0.0",
+  "description": "Juliette",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-23/app-week1-team1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-23/app-week1-team1/issues"
+  },
+  "homepage": "https://github.com/fac-23/app-week1-team1#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "cypress": "^9.2.1"
+  }
+}
