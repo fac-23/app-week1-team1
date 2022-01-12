@@ -10,6 +10,15 @@ server.get("/", (request, response) => {
 
   let allPosts = "";
 
+  for (const post of Object.values(posts)) {
+    allPosts += `<li>
+
+      <h2>${post.user}</h2>
+      <p>${post.message}</p>
+
+    </li>`
+  }
+
   let html = `
   <h1>Tiny Thoughts!</h1>
 
@@ -32,20 +41,22 @@ server.get("/", (request, response) => {
   response.send(html)
 
 
-  for (const post of Object.values(posts)) {
-    allPosts += `<li>
-
-      <h2>${post.name}</h2>
-      <p>${post.message}</p>
-
-    </li>`
-  }
-
-  response.redirect("/");
-
 })
 
 
+// ADDING A POST
+
+const bodyParser = express.urlencoded({ extended: false });
+
+server.post("/", bodyParser, (request, response) => {
+  const newName = request.body.user;
+  const newMessage = request.body.message;
+
+  const newPost = {user: newName, message: newMessage};
+
+  posts[newName] = newPost;
+  response.redirect("/");
+})
 
 
 

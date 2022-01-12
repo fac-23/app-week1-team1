@@ -2,9 +2,9 @@
 
 const posts = {
 
-  0: {"name": "Milly", "message": "Hi, I'm Milly"},
-  
-  1: {"name": "Paolo", "message": "Hi, I believe I am Paolo"},
+  milly: {"user": "Milly", "message": "Hi, I'm Milly"},
+
+  paolo: {"user": "Paolo", "message": "Hi, I believe I am Paolo"},
 
 };
 
