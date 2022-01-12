@@ -1,7 +1,13 @@
-h1 {
- color: dodgerblue;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
     color: red;
 }

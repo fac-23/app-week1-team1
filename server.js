@@ -5,6 +5,10 @@ const server = express();
 
 const posts = require("./posts");
 
+const staticHandler = express.static('public')
+
+server.use(staticHandler)
+
 // home page
 server.get("/", (request, response) => {
 
