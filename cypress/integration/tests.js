@@ -48,11 +48,11 @@ it("Can navigate to an existing page", () => {
   
     cy.visit("localhost:3333/sign-up");
   
-    // enter email
-    cy.get("form").find("#email").type("helloemail@gmail.com");
+    // // enter email
+    // cy.get("form").find("#email").type("helloemail@gmail.com");
   
-    // enter password
-    cy.get("form").find("#password").type("secretpassword");
+    // // enter password
+    // cy.get("form").find("#password").type("secretpassword");
   
     // submit the form
     cy.get("form").submit();

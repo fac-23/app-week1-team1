@@ -1,49 +1,57 @@
 const express = require("express");
-
 const server = express();
+
+// MODULES
+
+const posts = require("./posts");
 
 // home page
 server.get("/", (request, response) => {
-  response.send(`
-  <h1>Welcome to my site</h1>
-  <nav>
-    <a href="about">About</a>
-    <a href="sign-up">Sign up</a>
-  </nav>
-  `)
-})
 
-// about page
-server.get("/about", (request, response) => {
-  response.send("<h1>About this site</h1>")
-})
+  let allPosts = "";
 
-// sign-up page
-server.get("/sign-up", (request, response) => {
-  response.send(`
-  <h1>Sign up</h1>
+  let html = `
+  <h1>Tiny Thoughts!</h1>
+
   <form method="POST">
-    <label for="email">Email</label>
-    <input name="email" type="email" id="email">
-    <label for="password">Password</label>
-    <input name="password" type="password" id="password">
-    <button type="submit">Sign up!</button>
+
+    <label for="user">User</label>
+    <input name="user" type="text" id="user">
+
+    <label for="message">Message</label>
+    <textarea name="message" type="text" id="message"></textarea>
+
+    <button aria-label="Click this button submit your post" type="submit">Post</button>
+
   </form>
-  `)
+
+  <ul>${allPosts}</ul>
+
+  `;
+
+  response.send(html)
+
+
+  for (const post of Object.values(posts)) {
+    allPosts += `<li>
+
+      <h2>${post.name}</h2>
+      <p>${post.message}</p>
+
+    </li>`
+  }
+
+  response.redirect("/");
+
 })
 
 
-// redirect from sign-up page to welcome page
-server.post("/sign-up", (request, response) => {
-  response.redirect("/welcome");
-});
 
 
 
-// welcome page
-server.get("/welcome", (request, response) => {
-  response.send("<h1>Thanks for joining my friend!</h1>")
-})
+
+
+
 
 
 
