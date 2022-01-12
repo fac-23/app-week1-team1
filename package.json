@@ -4,7 +4,8 @@
   "description": "Juliette",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

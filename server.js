@@ -21,6 +21,12 @@ server.get("/", (request, response) => {
       <h2>${post.user}</h2>
       <p>${post.message}</p>
 
+      <form action="/deletepost" method="POST">
+
+      <button name="name" value="${post.user}" type="submit" aria-label="Click this button to delete this post">Delete</button>
+
+      </form>
+
     </li>`
   }
 
@@ -57,7 +63,7 @@ server.get("/", (request, response) => {
   </html>
 `;
 
-  response.send(html)
+  response.end(html);
 
 
 })
@@ -73,13 +79,24 @@ server.post("/", bodyParser, (request, response) => {
 
   const newPost = {user: newName, message: newMessage};
 
-  posts[newName] = newPost;
+  posts[newName.toLowerCase()] = newPost;
   response.redirect("/");
+  // console.log(posts);
+  // console.log(request.body.user);
+
 })
 
 
+// DELETE POST
 
+server.post("/deletepost", bodyParser, (request, response) => {
+  const postToDelete = request.body.name.toLowerCase();
+  console.log(request.body);
 
+  delete posts[postToDelete];
+
+  response.redirect("/");
+} )
 
 
 
