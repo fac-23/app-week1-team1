@@ -2,7 +2,7 @@
 
 const posts = {
 
-  milly: {"user": "Milly", "message": "Hi, I'm Milly"},
+  milly: {"user": "Milly", "message": "Hi, I'm Milly, hello, hello helloooooo, Hi, I'm Milly, hello, hello helloooooo, Hi, I'm Milly, hello, hello helloooooo, Hi, I'm Milly, hello, hello helloooooo"},
 
   paolo: {"user": "Paolo", "message": "Hi, I believe I am Paolo"},
 
