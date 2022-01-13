@@ -29,18 +29,16 @@ it("Can navigate to an existing page", () => {
   
   it("Can submit a form", () => {
   
-    cy.visit("localhost:3333/");
+    cy.visit("/");
   
     // // enter name of the user
-    cy.get("#submit-post-form").find("input[name='user']").type("Super Mario");
-  
-    // // enter password
-    // cy.get("form").find("#password").type("secretpassword");
+    cy.get("#submit-post-form").find("input[name='user']").type("Super Luigi");
+    cy.contains("Post").click();
+    cy.url().should("include", "/");
   
     // submit the form
 
-    cy.get("#submit-post-form").submit();
-    cy.log();
+    // cy.get("#submit-post-form").submit();
   })
   
   
