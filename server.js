@@ -5,32 +5,28 @@ const server = express();
 
 const posts = require("./posts");
 
-const staticHandler = express.static('public')
+const staticHandler = express.static("public");
 
-server.use(staticHandler)
+server.use(staticHandler);
 
 // home page
 server.get("/", (request, response) => {
-
   let allPosts = "";
 
-
   for (const post of Object.values(posts)) {
-    allPosts += `<li>
+    allPosts += `<li id =${post.user}>
 
       <h2>${post.user}</h2>
       <p>${post.message}</p>
 
       <form action="/deletepost" method="POST" id="delete-post-form">
 
-      <button name="name" value="${post.user}" type="submit" aria-label="Click this button to delete this post">Delete</button>
+      <button name="name" value="${post.user}" id="delete-post-btn" type="submit" aria-label="Click this button to delete this post">Delete</button>
 
       </form>
 
-    </li>`
+    </li>`;
   }
-
-
 
   let html = `<!DOCTYPE html>
   <html lang="en">
@@ -67,10 +63,7 @@ server.get("/", (request, response) => {
 `;
 
   response.end(html);
-
-
-})
-
+});
 
 // ADDING A POST
 
@@ -80,15 +73,13 @@ server.post("/", bodyParser, (request, response) => {
   const newName = request.body.user;
   const newMessage = request.body.message;
 
-  const newPost = {user: newName, message: newMessage};
+  const newPost = { user: newName, message: newMessage };
 
   posts[newName.toLowerCase()] = newPost;
   response.redirect("/");
   // console.log(posts);
   // console.log(request.body.user);
-
-})
-
+});
 
 // DELETE POST
 
@@ -99,11 +90,7 @@ server.post("/deletepost", bodyParser, (request, response) => {
   delete posts[postToDelete];
 
   response.redirect("/");
-} )
-
-
-
-
+});
 
 const PORT = 3333;
 
