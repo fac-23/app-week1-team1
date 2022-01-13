@@ -40,12 +40,12 @@ server.get("/", (request, response) => {
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Ubuntu&display=swap" rel="stylesheet">
-      <title>Document</title>
+      <title>Tiny Thoughts!</title>
   </head>
   <body>
 
     <div class="app-wrapper center width-md">
-
+<img src=https://freesvg.org/img/internet_cloud.png> 
       <h1>Tiny Thoughts!</h1>
 
       <form method="POST" id="submit-post-form" class="width-sm">
@@ -59,7 +59,8 @@ server.get("/", (request, response) => {
         <button aria-label="Click this button submit your post" type="submit">Post</button>
 
       </form>
-
+    <img src=https://freesvg.org/img/internet_cloud.png> 
+    
       <ul class="stack-md">${allPosts}</ul>
 
     </div>
@@ -98,6 +99,6 @@ server.post("/deletepost", bodyParser, (request, response) => {
   response.redirect("/");
 });
 
-const PORT = process.env.PORT || 3333;
+const PORT = /* process.env.PORT || */ 3333;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
