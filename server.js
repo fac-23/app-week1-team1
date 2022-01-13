@@ -98,6 +98,6 @@ server.post("/deletepost", bodyParser, (request, response) => {
   response.redirect("/");
 });
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
