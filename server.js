@@ -21,7 +21,7 @@ server.get("/", (request, response) => {
       <h2>${post.user}</h2>
       <p>${post.message}</p>
 
-      <form action="/deletepost" method="POST">
+      <form action="/deletepost" method="POST" id="delete-post-form">
 
       <button name="name" value="${post.user}" type="submit" aria-label="Click this button to delete this post">Delete</button>
 
@@ -45,7 +45,7 @@ server.get("/", (request, response) => {
 
   <h1>Tiny Thoughts!</h1>
 
-  <form method="POST">
+  <form method="POST" id="submit-post-form">
 
     <label for="user">User</label>
     <input name="user" type="text" id="user">
