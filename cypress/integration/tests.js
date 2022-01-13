@@ -62,6 +62,18 @@ it("Can delete posts from page", () => {
   cy.get("#Milly").should("not.exist");
 });
 
-// Check user input added to object
+// CAN SUBMIT A USER 
+// it("Can add a user", () => {
+//   cy.visit("/");
+//   cy.get('li[id="Juliette"]')
+//   cy.contains("h2")
+//   .should("be.visible")
+// })
 
-// Check message input is working
+// CAN ADD A MESSAGE
+// it("Can add a message", () => {
+//   cy.visit("/")
+//   cy.get('li[id="Paolo"]')
+//   cy.contains("p")
+//   .should("be.visible")
+// })
