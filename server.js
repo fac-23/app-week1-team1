@@ -14,10 +14,12 @@ server.get("/", (request, response) => {
   let allPosts = "";
 
   for (const post of Object.values(posts)) {
-    allPosts += `<li id =${post.user}>
+    allPosts += `<li id =${post.user} class="post">
 
-      <h2>${post.user}</h2>
-      <p>${post.message}</p>
+      <div class="post__content">
+        <h2 class="post__user">${post.user}</h2>
+        <p class="post__message">${post.message}</p>
+      </div>
 
       <form action="/deletepost" method="POST" id="delete-post-form">
 
@@ -42,21 +44,25 @@ server.get("/", (request, response) => {
   </head>
   <body>
 
-  <h1>Tiny Thoughts!</h1>
+    <div class="app-wrapper center width-md">
 
-  <form method="POST" id="submit-post-form">
+      <h1>Tiny Thoughts!</h1>
 
-    <label for="user">User</label>
-    <input name="user" type="text" id="user">
+      <form method="POST" id="submit-post-form" class="width-sm">
 
-    <label for="message">Message</label>
-    <textarea name="message" type="text" id="message"></textarea>
+        <label for="user">User</label>
+        <input name="user" type="text" id="user">
 
-    <button aria-label="Click this button submit your post" type="submit">Post</button>
+        <label for="message">Message</label>
+        <textarea name="message" type="text" id="message" rows="5" cols="33"></textarea>
 
-  </form>
+        <button aria-label="Click this button submit your post" type="submit">Post</button>
 
-  <ul>${allPosts}</ul>
+      </form>
+
+      <ul class="stack-md">${allPosts}</ul>
+
+    </div>
 
   </body>
   </html>

@@ -1,10 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+
 body {
     background: rgb(78,184,237);
     background: radial-gradient(circle, rgba(78,184,237,1) 0%, rgba(188,255,254,1) 100%);
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -14,29 +21,84 @@ h1 {
     color: rgb(94, 94, 243);
 }
 
+textarea, button, input {
+    border-radius: 5px;
+    padding: 0.5rem;
+}
 
-form {
+textarea, input {
+    border: 2px solid rgb(94, 94, 243);
+}
+
+
+#submit-post-form {
     border-radius: 50%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     color: rgb(49, 49, 167);
+    margin: 2rem 0;
 }
 
-label {
+/* label {
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
     font-size: 1.15rem;
-}
+} */
 
 button {
-    max-width: 300px;
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
+    width: 100px;
+    /* display: flex; */
+    /* margin: 0 auto; */
+    /* flex-direction: column; */
     color: rgb(242, 73, 73);
     background-color: gold;
-    box-sizing: border-box;
     border: 2px solid rgb(250, 159, 56);
+}  
+.post {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.post__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.post__user {
+    font-size: 1.8rem;
+}
+
+/* .post__message {
+
+} */
+
+
+
+
+/* UTILITY CLASSES */
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60rem;
+}
+
+.width-md {
+    max-width: 40rem;
+}
+
+.width-sm {
+    max-width: 20rem;
+}
+
+.stack-md > * + * {
+    margin-top: 1.2rem; 
 }
