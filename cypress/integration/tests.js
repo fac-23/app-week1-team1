@@ -9,19 +9,7 @@ it("Can navigate to an existing page", () => {
   cy.visit("localhost:3333/");
 });
 
-//   // CAN LOOK FOR TEXT
-
-//   it("Can look for text", () => {
-//     cy.visit("localhost:3333");
-
-//     // fails because it's case sensitive
-//     // cy.contains("about");
-
-//     // succeeds
-//     cy.contains("About");
-//   })
-
-// // CAN SUBMIT A FORM
+// CAN SUBMIT A FORM
 
 it("Can submit a form", () => {
   cy.visit("/");
@@ -56,24 +44,29 @@ it("Can submit and redirects form", () => {
 // CAN DELETE A POST
 it("Can delete posts from page", () => {
   cy.visit("/");
-  cy.get("#Milly")
-    .find("#delete-post-btn")
+  cy.get("#delete-post-btn")
+    //.find("#delete-post-btn")
     .click();
-  cy.get("#Milly").should("not.exist");
+  cy.get("#Paolo").should("not.exist");
 });
 
-// CAN SUBMIT A USER 
-// it("Can add a user", () => {
-//   cy.visit("/");
-//   cy.get('li[id="Juliette"]')
-//   cy.contains("h2")
-//   .should("be.visible")
-// })
+// CAN GENERATE A NAME
+it("Can add a user", () => {
+  cy.visit("/");
+  cy.get("#submit-post-form")
+  .find("input[name='user']")
+  .type("milly");
+  cy.contains("Post").click();
+  // Get the form and user submits a name onto page
+  cy.get("li").find("h2").contains("milly");
+})
 
-// CAN ADD A MESSAGE
-// it("Can add a message", () => {
-//   cy.visit("/")
-//   cy.get('li[id="Paolo"]')
-//   cy.contains("p")
-//   .should("be.visible")
-// })
+// CAN GENERATE A PARAGRAPH
+it("Can add a message", () => {
+  cy.visit("/")
+  cy.get("#submit-post-form")
+  .find("textarea[name='message']")
+  .type("hi");
+  cy.contains("Post").click();
+  cy.get("li").find("p").contains("hi");
+})
