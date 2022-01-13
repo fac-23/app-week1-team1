@@ -2,12 +2,13 @@
 
 it("Can navigate to an existing page", () => {
     // fails
-    // cy.visit("localhost:3333/abou");
+    // cy.visit("localhost:3333/wrong");
   
     // works
-    cy.visit("about");
+    // cy.visit("about");
+    cy.visit("localhost:3333/");
+
   });
-  
   
   
 //   // CAN LOOK FOR TEXT
@@ -24,41 +25,44 @@ it("Can navigate to an existing page", () => {
   
   
   
-  // CAN SUBMIT A FORM
+  // // CAN SUBMIT A FORM
   
   it("Can submit a form", () => {
   
-    cy.visit("localhost:3333/sign-up");
+    cy.visit("/");
   
-    // // enter email
-    // cy.get("form").find("#email").type("helloemail@gmail.com");
-  
-    // // enter password
-    // cy.get("form").find("#password").type("secretpassword");
+    // // enter name of the user
+    cy.get("#submit-post-form").find("input[name='user']").type("Super Luigi");
+    cy.contains("Post").click();
+    cy.url().should("include", "/");
   
     // submit the form
-    cy.get("form").submit();
+
+    // cy.get("#submit-post-form").submit();
   })
   
   
   
-  // CAN REDIRECT AFTER SUBMITTING FORM
+  // // CAN REDIRECT AFTER SUBMITTING FORM
   
-  it("Redirects to welcome page", () => {
+  // it("Redirects to welcome page", () => {
   
-    cy.visit("localhost:3333/sign-up");
+  //   cy.visit("localhost:3333/sign-up");
   
-    // // enter email
-    // cy.get("form").find("#email").type("helloemail@gmail.com");
+  //   // // enter email
+  //   // cy.get("form").find("#email").type("helloemail@gmail.com");
   
-    // // enter password
-    // cy.get("form").find("#password").type("secretpassword");
+  //   // // enter password
+  //   // cy.get("form").find("#password").type("secretpassword");
   
-    // submit the form
-    cy.get("form").submit();
+  //   // submit the form
+  //   cy.get("form").submit();
   
-    // checks if after submitting the form it redirects to the welcome page
-    cy.url().should("include", "/welcome");
+  //   // checks if after submitting the form it redirects to the welcome page
+  //   cy.url().should("include", "/welcome");
   
   
-  })
+  // })
+
+
+  // CAN DELETE A POST
