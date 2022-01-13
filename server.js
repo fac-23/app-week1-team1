@@ -37,6 +37,7 @@ server.get("/", (request, response) => {
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="./style.css">
+      <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Ubuntu&display=swap" rel="stylesheet">
@@ -59,7 +60,6 @@ server.get("/", (request, response) => {
         <button aria-label="Click this button submit your post" type="submit">Post</button>
 
       </form>
-    <img src=https://freesvg.org/img/internet_cloud.png> 
     
       <ul class="stack-md">${allPosts}</ul>
 
@@ -99,6 +99,6 @@ server.post("/deletepost", bodyParser, (request, response) => {
   response.redirect("/");
 });
 
-const PORT = /* process.env.PORT || */ 3333;
+const PORT = process.env.PORT || 3333;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));

@@ -12,7 +12,7 @@ body {
     rgba(78, 184, 237, 1) 0%,
     rgba(188, 255, 254, 1) 100%
   );
-  margin-top: 2rem;
+  margin: 2rem 1rem;
 }
 
 h1 {
@@ -86,10 +86,6 @@ button:hover {
 .post__user {
   font-size: 1.8rem;
 }
-
-/* .post__message {
-
-} */
 
 /* UTILITY CLASSES */
 
