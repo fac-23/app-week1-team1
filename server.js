@@ -14,6 +14,24 @@ server.get("/", (request, response) => {
 
   let allPosts = "";
 
+
+  for (const post of Object.values(posts)) {
+    allPosts += `<li>
+
+      <h2>${post.user}</h2>
+      <p>${post.message}</p>
+
+      <form action="/deletepost" method="POST" id="delete-post-form">
+
+      <button name="name" value="${post.user}" type="submit" aria-label="Click this button to delete this post">Delete</button>
+
+      </form>
+
+    </li>`
+  }
+
+
+
   let html = `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -27,9 +45,10 @@ server.get("/", (request, response) => {
       <title>Document</title>
   </head>
   <body>
+
   <h1>Tiny Thoughts!</h1>
 
-  <form method="POST">
+  <form method="POST" id="submit-post-form">
 
     <label for="user">User</label>
     <input name="user" type="text" id="user">
@@ -47,27 +66,40 @@ server.get("/", (request, response) => {
   </html>
 `;
 
-  response.send(html)
+  response.end(html);
 
-
-  for (const post of Object.values(posts)) {
-    allPosts += `<li>
-
-      <h2>${post.name}</h2>
-      <p>${post.message}</p>
-
-    </li>`
-  }
-
-  response.redirect("/");
 
 })
 
 
+// ADDING A POST
+
+const bodyParser = express.urlencoded({ extended: false });
+
+server.post("/", bodyParser, (request, response) => {
+  const newName = request.body.user;
+  const newMessage = request.body.message;
+
+  const newPost = {user: newName, message: newMessage};
+
+  posts[newName.toLowerCase()] = newPost;
+  response.redirect("/");
+  // console.log(posts);
+  // console.log(request.body.user);
+
+})
 
 
+// DELETE POST
 
+server.post("/deletepost", bodyParser, (request, response) => {
+  const postToDelete = request.body.name.toLowerCase();
+  console.log(request.body);
 
+  delete posts[postToDelete];
+
+  response.redirect("/");
+} )
 
 
 
