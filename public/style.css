@@ -1,44 +1,49 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
 body {
-    background: rgb(78,184,237);
-    background: radial-gradient(circle, rgba(78,184,237,1) 0%, rgba(188,255,254,1) 100%);
-    /* display: flex;
+  background: rgb(78, 184, 237);
+  background: radial-gradient(
+    circle,
+    rgba(78, 184, 237, 1) 0%,
+    rgba(188, 255, 254, 1) 100%
+  );
+  /* display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; */
-    font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 h1 {
-    font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 2rem;
-    color: rgb(94, 94, 243);
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 2rem;
+  color: rgb(94, 94, 243);
 }
 
-textarea, button, input {
-    border-radius: 5px;
-    padding: 0.5rem;
+textarea,
+button,
+input {
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
-textarea, input {
-    border: 2px solid rgb(94, 94, 243);
+textarea,
+input {
+  border: 2px solid rgb(94, 94, 243);
 }
-
 
 #submit-post-form {
-    border-radius: 50%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: rgb(49, 49, 167);
-    margin: 2rem 0;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: rgb(49, 49, 167);
+  margin: 2rem 0;
 }
 
 /* label {
@@ -48,57 +53,54 @@ textarea, input {
 } */
 
 button {
-    width: 100px;
-    /* display: flex; */
-    /* margin: 0 auto; */
-    /* flex-direction: column; */
-    color: rgb(242, 73, 73);
-    background-color: gold;
-    border: 2px solid rgb(250, 159, 56);
-}  
+  width: 100px;
+  /* display: flex; */
+  /* margin: 0 auto; */
+  /* flex-direction: column; */
+  color: black;
+  background-color: gold;
+  border: 2px solid rgb(250, 159, 56);
+}
 .post {
-    border: 2px solid blue;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .post__content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .post__user {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 /* .post__message {
 
 } */
 
-
-
-
 /* UTILITY CLASSES */
 
 .center {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
 }
 
 .width-md {
-    max-width: 40rem;
+  max-width: 40rem;
 }
 
 .width-sm {
-    max-width: 20rem;
+  max-width: 20rem;
 }
 
 .stack-md > * + * {
-    margin-top: 1.2rem; 
+  margin-top: 1.2rem;
 }
