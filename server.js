@@ -2,12 +2,48 @@ const express = require("express");
 const server = express();
 
 // MODULES
-
 const posts = require("./posts");
 
 const staticHandler = express.static("public");
 
 server.use(staticHandler);
+
+//adding image files
+const multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, ".public/images");
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/ico" ||
+    file.mimetype === "image/png"
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+var upload = multer({
+  storage: storage,
+  fileFilter: fileFilter
+});
+
+server.post("/uploadForm", upload.single("myImg"), async (req, res, next) => {
+  if (req.file) {
+    const pathName = req.file.path;
+    res.send(req.file, pathName);
+  }
+});
 
 // home page
 server.get("/", (request, response) => {
@@ -99,6 +135,6 @@ server.post("/deletepost", bodyParser, (request, response) => {
   response.redirect("/");
 });
 
-const PORT = process.env.PORT || 3333;
+const PORT = /*process.env.PORT ||*/ 3333;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));

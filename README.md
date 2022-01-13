@@ -1,7 +1,5 @@
 # Our micro blogging APP, the sky is the limit!!!
 
-
-
 ## User stories
 
 - [x] As an opinionated person, I want to: post my thoughts so others can read them
@@ -10,7 +8,6 @@
 ## Stretch user stories
 
 - [x] As an impulsive person, I want to: delete my posts so no one can see them anymore
-
 
 ## Acceptance criteria
 
@@ -22,22 +19,24 @@
 - [x] A responsive, mobile-first design
 - [x] Ensure your app is accessible to as many different users as possible
 
-
 ## Roles
 
 ### Scrum Facilitator
+
 Juliette
 
 ### DevOps
+
 Adam
 
 ### User Experience
+
 Paolo
 
 ### Quality Assurance
-Milly
 
+Milly
 
 ## App preview
 
-![Application screenshot](./public/app-screenshot.png)
+![Application screenshot](./public/images/app-screenshot.png)
