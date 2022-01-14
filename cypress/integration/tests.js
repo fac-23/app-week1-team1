@@ -71,3 +71,12 @@ it("Can add a message", () => {
   // cy.contains("Post").click();
   cy.get("li").find("p").contains("hi");
 })
+
+
+// CAN APPLY STYLES
+
+it("can apply styles reading from stylesheet", () => {
+  cy.visit("/");
+  cy.get("#submit-post-form").find("button")
+  .should("have.css", "width", "100px");
+});
