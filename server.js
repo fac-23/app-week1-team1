@@ -102,3 +102,24 @@ server.post("/deletepost", bodyParser, (request, response) => {
 const PORT = process.env.PORT || 3333;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+
+// redirect to page is not found if 404 status
+
+server.use((request, response) => {
+  const page404 = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel ='stylesheet' type='text/css' href='status404.css'>
+      <title>cloud not found</title>
+  </head>
+  <body>
+  <h1>The page your looking for doesn't exist</h1>
+  </body>
+  </html>
+`
+
+  response.status(404).send(page404)
+})
