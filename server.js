@@ -69,7 +69,7 @@ server.get("/", (request, response) => {
   </html>
 `;
 
-  response.end(html);
+  response.send(html);
 });
 
 // ADDING A POST

@@ -44,29 +44,39 @@ it("Can submit and redirects form", () => {
 // CAN DELETE A POST
 it("Can delete posts from page", () => {
   cy.visit("/");
-  cy.get("#delete-post-btn")
-    //.find("#delete-post-btn")
+  cy.get("#delete-post-form")
+    .find("#delete-post-Milly")
     .click();
-  cy.get("#Paolo").should("not.exist");
+  cy.get("#Milly").should("not.exist");
 });
 
-// CAN GENERATE A NAME
+// // CAN GENERATE A NAME
 it("Can add a user", () => {
   cy.visit("/");
   cy.get("#submit-post-form")
   .find("input[name='user']")
-  .type("milly");
-  cy.contains("Post").click();
+  .type("paolo");
+  cy.get("#submit-post-form").find("button").click();
   // Get the form and user submits a name onto page
-  cy.get("li").find("h2").contains("milly");
+  cy.get("li").find("h2").contains("paolo");
 })
 
-// CAN GENERATE A PARAGRAPH
+// // CAN GENERATE A PARAGRAPH
 it("Can add a message", () => {
   cy.visit("/")
   cy.get("#submit-post-form")
   .find("textarea[name='message']")
   .type("hi");
-  cy.contains("Post").click();
+  cy.get("#submit-post-form").find("button").click();
+  // cy.contains("Post").click();
   cy.get("li").find("p").contains("hi");
 })
+
+
+// CAN APPLY STYLES
+
+it("can apply styles reading from stylesheet", () => {
+  cy.visit("/");
+  cy.get("#submit-post-form").find("button")
+  .should("have.css", "width", "100px");
+});
