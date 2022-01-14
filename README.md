@@ -1,6 +1,23 @@
-# Our micro blogging APP, the sky is the limit!!!
+# Tiny Thoughts microblogging app
+
+## Our microblogging APP, the sky is the limit!!!
 
 
+## How to run the app FOR USERS
+
+Click the link to open the app 👇🏻
+
+[Tiny Thoughts](https://tiny-thoughts.herokuapp.com)
+
+
+## How to run the app FOR DEVELOPERS
+
+* Clone the repo on your machine
+* Open the repo in VScode
+* Run ``` npm install ``` inside the terminal
+* Run ``` npm run dev ``` to start the server
+* You can access [localhost:3333](http:/localhost:3333) in your browser to visit the app
+* Run ``` npm run test ``` to open Cypress and test the app
 
 ## User stories
 
