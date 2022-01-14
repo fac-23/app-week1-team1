@@ -2,7 +2,15 @@
 
 ## Our microblogging APP, the sky is the limit!!!
 
-## How to run the app
+
+## How to run the app FOR USERS
+
+Click the link to open the app 👇🏻
+
+[Tiny Thoughts](https://tiny-thoughts.herokuapp.com)
+
+
+## How to run the app FOR DEVELOPERS
 
 * Clone the repo on your machine
 * Open the repo in VScode
