@@ -55,10 +55,10 @@ it("Can add a user", () => {
   cy.visit("/");
   cy.get("#submit-post-form")
   .find("input[name='user']")
-  .type("milly");
-  cy.contains("Post").click();
+  .type("paolo");
+  cy.get("#submit-post-form").find("button").click();
   // Get the form and user submits a name onto page
-  cy.get("li").find("h2").contains("milly");
+  cy.get("li").find("h2").contains("paolo");
 })
 
 // // CAN GENERATE A PARAGRAPH
@@ -67,6 +67,7 @@ it("Can add a message", () => {
   cy.get("#submit-post-form")
   .find("textarea[name='message']")
   .type("hi");
-  cy.contains("Post").click();
+  cy.get("#submit-post-form").find("button").click();
+  // cy.contains("Post").click();
   cy.get("li").find("p").contains("hi");
 })
