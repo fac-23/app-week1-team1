@@ -44,13 +44,13 @@ it("Can submit and redirects form", () => {
 // CAN DELETE A POST
 it("Can delete posts from page", () => {
   cy.visit("/");
-  cy.get("#delete-post-btn")
-    //.find("#delete-post-btn")
+  cy.get("#delete-post-form")
+    .find("#delete-post-Milly")
     .click();
-  cy.get("#Paolo").should("not.exist");
+  cy.get("#Milly").should("not.exist");
 });
 
-// CAN GENERATE A NAME
+// // CAN GENERATE A NAME
 it("Can add a user", () => {
   cy.visit("/");
   cy.get("#submit-post-form")
@@ -61,7 +61,7 @@ it("Can add a user", () => {
   cy.get("li").find("h2").contains("milly");
 })
 
-// CAN GENERATE A PARAGRAPH
+// // CAN GENERATE A PARAGRAPH
 it("Can add a message", () => {
   cy.visit("/")
   cy.get("#submit-post-form")
