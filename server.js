@@ -14,11 +14,11 @@ server.get("/", (request, response) => {
   let allPosts = "";
 
   for (const post of Object.values(posts)) {
-    allPosts += `<li id =${post.user} class="post">
+    allPosts += `<li id =${post.user.replace(/>/g, "&lt;")} class="post">
 
       <div class="post__content">
-        <h2 class="post__user">${post.user}</h2>
-        <p class="post__message">${post.message}</p>
+        <h2 class="post__user">${post.user.replace(/>/g, "&lt;")}</h2>
+        <p class="post__message">${post.message.replace(/>/g, "&lt;")}</p>
       </div>
 
       <form action="/deletepost" method="POST" id="delete-post-form">
@@ -77,12 +77,12 @@ server.get("/", (request, response) => {
 const bodyParser = express.urlencoded({ extended: false });
 
 server.post("/", bodyParser, (request, response) => {
-  const newName = request.body.user;
-  const newMessage = request.body.message;
+  const newName = request.body.user.replace(/>/g, "&lt;");
+  const newMessage = request.body.message.replace(/>/g, "&lt;");
 
   const newPost = { user: newName, message: newMessage };
 
-  posts[newName.toLowerCase()] = newPost;
+  posts[newName.toLowerCase().replace(/>/g, "&lt;")] = newPost;
   response.redirect("/");
   // console.log(posts);
   // console.log(request.body.user);
